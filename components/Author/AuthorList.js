@@ -7,7 +7,7 @@ import AuthorPreview from './AuthorPreview';
 
 const AuthorList = () => {
     const [page, setPage] = useState(1);
-    const [limit] = useState(10);
+    const [limit] = useState(9);
     const [filter, setFilter] = useState({
         name: '',
     });
@@ -21,6 +21,7 @@ const AuthorList = () => {
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         setFilter({ ...filter, [name]: value });
+        setPage(1);
     };
 
     if (loading) return <p>Loading...</p>;
@@ -57,7 +58,7 @@ const AuthorList = () => {
                 ))}
             </div>
 
-            {/* <Pagination page={page} setPage={setPage} /> */}
+            <Pagination page={page} setPage={setPage} />
         </div>
     );
 };

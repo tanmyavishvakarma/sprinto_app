@@ -49,12 +49,6 @@ const AuthorDetailPage = () => {
                     </div>
                     <div className="flex space-x-2">
                         <Link
-                            href={`/authors/${id}/edit`}
-                            className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
-                        >
-                            Edit
-                        </Link>
-                        <Link
                             href="/authors"
                             className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700"
                         >

@@ -1,17 +1,22 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useMutation } from '@apollo/client';
 import { CREATE_REVIEW, GET_BOOK } from '../../lib/queries';
 
 const ReviewForm = ({ bookId, onSuccess }) => {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         reviewerName: '',
-        rating: 5,
+        rating: '5',
         text: '',
     });
 
     const [createReview] = useMutation(CREATE_REVIEW, {
         refetchQueries: [{ query: GET_BOOK, variables: { id: bookId } }],
-        onCompleted: onSuccess,
+        onCompleted: () => {
+            if (onSuccess) onSuccess();
+            router.push('/books');
+        },
     });
 
     const handleChange = (e) => {
@@ -26,6 +31,7 @@ const ReviewForm = ({ bookId, onSuccess }) => {
                 input: {
                     bookId: parseInt(bookId),
                     ...formData,
+                    rating: String(formData.rating),
                 },
             },
         });
