@@ -5,7 +5,7 @@ const Navbar = () => {
         <nav className="bg-blue-600 text-white shadow-lg">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
                 <Link href="/" className="text-xl font-bold">
-                    Bookstore
+                    Pages Not Found
                 </Link>
                 <div className="flex space-x-4">
                     <Link href="/books" className="hover:underline">

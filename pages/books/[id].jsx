@@ -32,14 +32,6 @@ export default function BookDetail() {
             <div className="mb-6">
               <h2 className="text-xl font-semibold mb-2">Book Details</h2>
               <p><span className="font-medium">Genre:</span> {data.book.genre}</p>
-              <p><span className="font-medium">Published:</span> {data.book.publishedDate}</p>
-              <p><span className="font-medium">Pages:</span> {data.book.pageCount}</p>
-            </div>
-            
-            <div>
-              <h2 className="text-xl font-semibold mb-2">Author Information</h2>
-              <p><span className="font-medium">Country:</span> {data.book.author.country}</p>
-              <p><span className="font-medium">Birth Date:</span> {data.book.author.birthDate}</p>
             </div>
           </div>
           
@@ -49,7 +41,7 @@ export default function BookDetail() {
         </div>
       </div>
       
-      <ReviewList reviews={data.book.reviews} />
+      <ReviewList bookId={id} reviews={data.book.reviews} />
     </div>
   );
 }
