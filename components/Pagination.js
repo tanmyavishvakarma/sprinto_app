@@ -1,4 +1,4 @@
-const Pagination = ({ page, setPage }) => {
+const Pagination = ({ page, setPage, totalPages }) => {
     const goToPrevious = () => {
         if (page > 1) {
             setPage(page - 1);
@@ -6,7 +6,9 @@ const Pagination = ({ page, setPage }) => {
     };
 
     const goToNext = () => {
-        setPage(page + 1);
+        if (page < totalPages) {
+            setPage(page + 1);
+        }
     };
 
     return (
@@ -20,11 +22,12 @@ const Pagination = ({ page, setPage }) => {
                     Previous
                 </button>
                 <span className="px-3 py-2 bg-white border-t border-b border-gray-300 text-gray-700">
-                    Page {page}
+                    Page {page} of {totalPages}
                 </span>
                 <button
                     onClick={goToNext}
-                    className="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                    disabled={page === totalPages}
+                    className={`px-3 py-2 rounded-r-md border ${page === totalPages ? 'bg-gray-100 text-gray-400' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
                 >
                     Next
                 </button>
