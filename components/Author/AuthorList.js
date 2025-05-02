@@ -14,6 +14,8 @@ const AuthorList = () => {
 
     const { loading, error, data } = useQuery(GET_AUTHORS, {
         variables: { page, limit, filter },
+        fetchPolicy: 'network-only',
+        nextFetchPolicy: 'network-only',
     });
 
     const handleFilterChange = (e) => {

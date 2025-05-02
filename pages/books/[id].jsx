@@ -9,7 +9,9 @@ export default function BookDetail() {
   const { id } = router.query;
   
   const { loading, error, data } = useQuery(GET_BOOK, {
-    variables: { id }
+    variables: { id },
+    fetchPolicy: 'network-only',
+    nextFetchPolicy: 'network-only',
   });
 
   const [addReview] = useMutation(CREATE_REVIEW, {

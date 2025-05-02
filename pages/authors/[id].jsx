@@ -8,6 +8,8 @@ const AuthorDetailPage = () => {
     const { id } = router.query;
 
     const { loading, error, data } = useQuery(GET_AUTHOR, {
+        fetchPolicy: 'network-only',
+        nextFetchPolicy: 'network-only',
         variables: { id },
     });
 

@@ -16,6 +16,8 @@ const BookList = () => {
 
     const { loading, error, data } = useQuery(GET_BOOKS, {
         variables: { page, limit, filter },
+        fetchPolicy: 'network-only',
+        nextFetchPolicy: 'network-only',
     });
 
     const handleFilterChange = (e) => {
