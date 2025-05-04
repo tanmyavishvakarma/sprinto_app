@@ -1,4 +1,4 @@
-const Pagination = ({ page, setPage, totalPages }) => {
+const Pagination = ({ page, setPage, totalPages = 1 }) => {
     const goToPrevious = () => {
         if (page > 1) {
             setPage(page - 1);
